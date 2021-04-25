@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current time</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            display: table;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: radial-gradient(ellipse farthest-side at center center, #CFC7BA 38%, #7284CF 100%);
+        }
+        #time {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 100px;
+            background: linear-gradient(45deg, #09009f, #00ff95 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p id="time"></p>
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", ()=>{
+        const view = document.querySelector('#time');
+
+        let refresh = () => {
+            const time = new Date();
+            view.innerHTML = time.toLocaleTimeString();
+        }
+        refresh();
+        setInterval(refresh,1000);
+    })
+</script>
+</html>
